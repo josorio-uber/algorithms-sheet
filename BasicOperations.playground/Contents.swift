@@ -1,9 +1,9 @@
-# algorithms-sheet
-Useful methods when studying algorithms
 
-## String Manipulation
+import Foundation
 
-```swift
+/*
+ ------------------------ String Manipulation ---------------------
+ */
 // Get characters from String
 var characters = Array(string)
 
@@ -43,11 +43,11 @@ let joined = array.joined(separator: ", ")
 // split element
 let value = "i live in a house"
 value.split(separator: " ")
-```
 
-## Math Operations
+/*
+ ------------------------ Math Operations ---------------------
+ */
 
-```swift
 // Character to Int
 let char: Character = "9"
 let digit = char.wholeNumberValue
@@ -65,11 +65,11 @@ let digits = Array(String(num))
 
 let a = [1, 2, 3]
 a.reduce(0, +) // 6
-```
 
-## Array Operations
+/*
+ ------------------------ Array Operations ---------------------
+ */
 
-```swift
 // for loop
 for i in 0..<10 {
 //from 0 to 9 excluding 10
@@ -138,11 +138,10 @@ func makeList(_ n: Int) -> [Int] {
     return (0..<n).map { _ in .random(in: 1...20) }
 }
 
-```
 
-## Matrix Operations
-
-```swift
+/*
+ ------------------------ Matrix Operations ---------------------
+ */
 var matrix = [[1, 2, 3, 10], [4, 5, 6, 20], [7, 8, 9, 30]]
 
 print("Matrix ------- each row column by column")
@@ -165,5 +164,3 @@ for i in 0..<matrix[0].count {
         print(item)
     }
 }
-
-```
