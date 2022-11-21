@@ -11,6 +11,11 @@ var characters = Array(string)
 var word = ""
 word.insert("a", at: word.startIndex)
 
+//append character at end
+var newStringToAppendTo = "a"
+var char3: Character = "b"
+newStringToAppendTo.append(char3)
+
 ["A", "bue", "la"].reduce("", +) // Abuela
 // Remove character
 var longWord = "Long word"
@@ -43,6 +48,112 @@ let joined = array.joined(separator: ", ")
 // split element
 let value = "i live in a house"
 value.split(separator: " ")
+
+/*
+ ------------------------ String index Operations
+ */
+var str = "Hello, playground"
+
+// start index and end index
+
+// character
+str[str.startIndex] // H
+//str[str.endIndex]   // error: after last character
+
+// range
+let range = str.startIndex..<str.endIndex
+str[range]  // "Hello, playground"
+
+/*
+after
+As in: index(after: String.Index)
+
+after refers to the index of the character directly after the given index.
+Examples
+*/
+
+// character
+let index = str.index(after: str.startIndex)
+str[index]  // "e"
+
+// range
+let range2 = str.index(after: str.startIndex)..<str.endIndex
+str[range2]  // "ello, playground"
+
+/*
+before
+As in: index(before: String.Index)
+
+before refers to the index of the character directly before the given index.
+Examples
+*/
+// character
+let index1 = str.index(before: str.endIndex)
+str[index]  // d
+
+// range
+let range3 = str.startIndex..<str.index(before: str.endIndex)
+str[range3]  // Hello, playgroun
+
+/*
+offsetBy
+As in: index(String.Index, offsetBy: String.IndexDistance)
+
+The offsetBy value can be positive or negative and starts from the given index. Although it is of the type String.IndexDistance, you can give it an Int.
+Examples
+*/
+
+// character
+let index3 = str.index(str.startIndex, offsetBy: 7)
+str[index]  // p
+
+// range
+let start = str.index(str.startIndex, offsetBy: 7)
+let end = str.index(str.endIndex, offsetBy: -6)
+let range4 = start..<end
+str[range]  // play
+
+/*
+limitedBy
+As in: index(String.Index, offsetBy: String.IndexDistance, limitedBy: String.Index)
+
+The limitedBy is useful for making sure that the offset does not cause the index to go out of bounds. It is a bounding index. Since it is possible for the offset to exceed the limit, this method returns an Optional. It returns nil if the index is out of bounds.
+Example
+*/
+
+// character
+if let index5 = str.index(str.startIndex, offsetBy: 7, limitedBy: str.endIndex) {
+    str[index5]  // p
+}
+
+/*
+ Get index
+ And get index all the way to the end.
+ */
+
+let string2 = "abcdefghijklmn"
+if let indexOfLastF = string2.lastIndex(of: "f") {
+    let substring = string2[indexOfLastF] // f
+    
+    // get subtring from current index to the end of string
+    let substring2 = string2[indexOfLastF...] //"fghijklmn"
+}
+
+/*
+ First index
+ subrange from current index to the end
+ Replace subrange
+ Last Index
+ */
+
+var replaceString = "foo(bar)ahdsa"
+
+if let openIdx = replaceString.lastIndex(of: "(") {
+    let closeIdx = replaceString[openIdx...].firstIndex(of:")")! //subrange from current index to the end
+    replaceString.replaceSubrange(openIdx...closeIdx, with: replaceString[replaceString.index(after: openIdx)..<closeIdx].reversed())
+    print(replaceString)
+}
+
 
 /*
  ------------------------ Math Operations ---------------------
