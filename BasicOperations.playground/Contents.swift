@@ -171,11 +171,51 @@ pow(10, 2) // 10^2 = 100 but returns a Decimal
 //To convert it to Int
 (pow(10, 2) as NSDecimalNumber).intValue
 
+// square root
+25.0.squareRoot() //5
+
+// Nth root
+var radicand:Double = 125
+var rootIndex: Double = 3
+var rootResult:Double = 0.0
+
+rootResult = pow(radicand,1/rootIndex) // 5
+
+print("Result: ",rootResult)
+
+// log
+print(log2(8.0)) // 3.0
+
+// Custom base log function
+func logC(val: Double, forBase base: Double) -> Double {
+    return log(val)/log(base)
+}
+
+print(logC(val: 9.0, forBase: 3.0)) // "2.0"
+print(logC(val: 16.0, forBase: 4.0)) // "2.0"
+
 // get digits
 let digits = Array(String(num))
 
 let a = [1, 2, 3]
 a.reduce(0, +) // 6
+
+let doubleWithDecimal = 4.5466
+
+//round down
+floor(doubleWithDecimal) // 4
+
+//round up
+ceil(doubleWithDecimal) // 5
+
+// The round function will round to the nearest whole number:
+let doubleNumber: Double = 1.95
+let roundedDouble = round(doubleNumber)
+// roundedDouble is 2.0
+
+let floatNumber: Float = 3.42
+let roundedFloat = round(floatNumber)
+// roundedFloat is 3.0
 
 /*
  ------------------------ Array Operations ---------------------
