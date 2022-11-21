@@ -49,6 +49,9 @@ let joined = array.joined(separator: ", ")
 let value = "i live in a house"
 value.split(separator: " ")
 
+//Create string repeating character
+let repetinhgChar = String(repeating: "*", count: 5) //*****
+
 /*
  ------------------------ String index Operations
  */
@@ -314,4 +317,24 @@ for i in 0..<matrix[0].count {
         
         print(item)
     }
+}
+
+// Get neighbors in matrix
+
+func getNeighborsFromNode(node: (row: Int, col: Int), in field: [[Bool]]) -> [(row: Int, col: Int)] {
+    var nodes = [(row: Int, col: Int)]()
+    let xdir = [-1, 1, -1, 1, -1, 1, 0, 0]
+    let ydir = [0, 0, -1, -1, 1, 1, -1, 1]
+    
+    for i in 0..<xdir.count {
+        let newRow = node.row + xdir[i]
+        let newColumn = node.col + ydir[i]
+        
+        if newRow >= 0 && newRow < field.count &&
+            newColumn >= 0 && newColumn < field[0].count {
+            nodes.append((row: newRow, col: newColumn))
+        }
+    }
+    
+    return nodes
 }
